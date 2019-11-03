@@ -21,6 +21,7 @@ from passage import views
 
 router = routers.DefaultRouter()
 router.register(r'passages', views.passageView, 'passage')
+router.register(r'questions', views.questionView, 'question')
 
 urlpatterns = [
     path('admin/', admin.site.urls),

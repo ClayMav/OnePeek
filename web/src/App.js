@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import { Login } from "./screens/Login";
+import { Passage } from "./screens/Passage";
 
 import styled from "styled-components";
 
@@ -18,7 +19,7 @@ function App() {
             <Login />
           </Route>
           <Route path="/passage">
-            <h1>Bye</h1>
+            <Passage />
           </Route>
           <Route path="/profile">
             <h1>See ya</h1>

@@ -25,5 +25,6 @@ router.register(r'questions', views.questionView, 'question')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls))
+    path('api/', include(router.urls)),
+    path(r'^api/auth/', include('knox.urls')),
 ]

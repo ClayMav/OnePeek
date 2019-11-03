@@ -14,8 +14,6 @@ const ProfileScreen = styled.main`
   margin: 0 35px 0 35px;
 `;
 
-// TODO: Set the size of the profile image and 
-// add a circular cut to it
 const ProfilePic = styled.div`
   border-radius: 50%;
   display: flex;

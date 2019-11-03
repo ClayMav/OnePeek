@@ -1,12 +1,38 @@
 import React from "react";
 import styled from "styled-components";
 import MaterialIcon from "material-icons-react";
+import { Link } from 'react-router-dom';
+
+const TitleNav = styled.div`
+  display: flex;
+  justify-content: center;
+  padding: 0px;
+`;
+
+const Chevron = styled.i`
+	border-style: solid;
+	border-width: 0.25em 0.25em 0 0;
+	content: '';
+	display: flex;
+	height: 1.5em;
+	left: 0.7em;
+	position: relative;
+	top: 3em;
+	transform: rotate(-135deg);
+	width: 1.5em;
+`;
+
+const LinkReset = styled(Link)`
+  color: #fff;
+  text-decoration: none;
+`;
 
 const Divider = styled.hr`
   width: 100%;
 `;
 
 const ProfileScreen = styled.main`
+  border: solid red;
   background: #30323a;
   color: #fff;
   display: flex;
@@ -165,9 +191,15 @@ const Profile = ({ username, imgSource, passageCount }) => {
 
   return (
     <ProfileScreen>
-      <ProfilePic>
-        <img src={imgSource} alt="Profile picture" />
-      </ProfilePic>
+      <TitleNav>
+        <LinkReset to="/passage">
+          <Chevron />
+        </LinkReset>
+        <ProfilePic>
+          <img src={imgSource} alt="Profile picture" />
+        </ProfilePic>
+      </TitleNav>
+
 
       <Greeting>Hey <Name>{username}</Name>,</Greeting>
       <PassageCount>

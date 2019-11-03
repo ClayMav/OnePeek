@@ -13,10 +13,11 @@ const Question = styled.p`
   font-size: 18px;
   width: 270px;
   text-align: center;
+  margin: 30px 0;
 `;
 const DoubleButton = styled.div`
   width: 205px;
-  height: 40px;
+  height: 30px;
   display: flex;
 `;
 const Button = styled.button`
@@ -28,6 +29,7 @@ const Button = styled.button`
   cursor: pointer;
   font-size: 16px;
   transition: 0.1s ease-in-out all;
+  font-family: "IBM Plex Serif", Georgia, "Times New Roman", serif !important;
 
   &:hover {
     background: #838383;

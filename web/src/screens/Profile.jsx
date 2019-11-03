@@ -32,7 +32,6 @@ const Divider = styled.hr`
 `;
 
 const ProfileScreen = styled.main`
-  border: solid red;
   background: #30323a;
   color: #fff;
   display: flex;

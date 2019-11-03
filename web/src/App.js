@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import { Login } from "./screens/Login";
 import { Passage } from "./screens/Passage";
+import { Profile } from "./screens/Profile"
 
 import styled from "styled-components";
 
@@ -22,7 +23,11 @@ function App() {
             <Passage />
           </Route>
           <Route path="/profile">
-            <h1>See ya</h1>
+            <Profile
+              username="clay"
+              imgSource="./assets/test.jpg"
+              passageCount="5"
+            />
           </Route>
         </Switch>
       </Router>

@@ -1,6 +1,31 @@
 import React from "react";
 import styled from "styled-components";
 import MaterialIcon from "material-icons-react";
+import { Link } from 'react-router-dom';
+
+const TitleNav = styled.div`
+  display: flex;
+  justify-content: center;
+  padding: 0px;
+`;
+
+const Chevron = styled.i`
+	border-style: solid;
+	border-width: 0.25em 0.25em 0 0;
+	content: '';
+	display: flex;
+	height: 1.5em;
+	left: 0.7em;
+	position: relative;
+	top: 3em;
+	transform: rotate(-135deg);
+	width: 1.5em;
+`;
+
+const LinkReset = styled(Link)`
+  color: #fff;
+  text-decoration: none;
+`;
 
 const Divider = styled.hr`
   width: 100%;
@@ -12,6 +37,7 @@ const ProfileScreen = styled.main`
   display: flex;
   flex-direction: column;
   margin: 0 35px 0 35px;
+  min-height: 100vh;
 `;
 
 const ProfilePic = styled.div`
@@ -21,7 +47,7 @@ const ProfilePic = styled.div`
   height: 178px;
   width: 178px;
   overflow: hidden;
-  margin: 35px auto auto auto;
+  margin: 35px auto 20px auto;
 `;
 
 const Greeting = styled.span`
@@ -38,7 +64,7 @@ const Name = styled.span`
 const PassageCount = styled.span`
   font-size: 16px;
   text-align: center;
-  margin: 0 auto 10px auto;
+  margin: 0 auto 15px auto;
 `;
 
 const PassageNum = styled.span`
@@ -52,7 +78,7 @@ const PassageTitle = styled.span`
   align-items: center;
   font-size: 30px;
   font-weight: 500;
-  margin: 5px 0 15px 0;
+  margin: 10px 0 15px 0;
   padding: 0;
   text-decoration: none;
 
@@ -84,7 +110,7 @@ const RightSide = styled.div`
   align-items: center;
   font-size: 16px;
   margin: 0 0 0 15px;
-  min-width: 110px;
+  min-width: 115px;
 `;
 
 // Max-width based on a max line length of 15 characters
@@ -164,9 +190,15 @@ const Profile = ({ username, imgSource, passageCount }) => {
 
   return (
     <ProfileScreen>
-      <ProfilePic>
-        <img src={imgSource} alt="Profile picture" />
-      </ProfilePic>
+      <TitleNav>
+        <LinkReset to="/passage">
+          <Chevron />
+        </LinkReset>
+        <ProfilePic>
+          <img src={imgSource} alt="Profile picture" />
+        </ProfilePic>
+      </TitleNav>
+
 
       <Greeting>Hey <Name>{username}</Name>,</Greeting>
       <PassageCount>

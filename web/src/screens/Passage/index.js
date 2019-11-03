@@ -23,9 +23,9 @@ const passage = {
     {
       question:
         "Ribbon eel horsefish southern Dolly electric eel jackfish opah sunfish, hawkfish?",
-      comments: [{ commenter: "Clay McGinnis", comment: "I hate the sea!" }],
-      positive: 75,
-      negative: 32
+      options: ["Yes", "No"],
+      results: [75, 32],
+      comments: [{ commenter: "Clay McGinnis", comment: "I hate the sea!" }]
     }
   ],
   likes: 24,

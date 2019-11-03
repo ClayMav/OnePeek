@@ -112,26 +112,26 @@ const BookDesc = styled.p`
 
 const JSON_stuff = [
   {
-    "title": "Fahrenheit 451",
-    "desc": "1953 - Ray Bradbury",
-    "page": "134"
+    title: "Fahrenheit 451",
+    desc: "1953 - Ray Bradbury",
+    page: "134"
   },
   {
-    "title": "Slaughterhouse Five",
-    "desc": "1969 - Kurt Vonnegut",
-    "page": "77"
+    title: "Slaughterhouse Five",
+    desc: "1969 - Kurt Vonnegut",
+    page: "77"
   },
   {
-    "title": "Le Comte de Monte Cristo",
-    "desc": "1844 - Alexandre Dumas",
-    "page": "3989"
+    title: "Le Comte de Monte Cristo",
+    desc: "1844 - Alexandre Dumas",
+    page: "3989"
   },
   {
-    "title": "So Good They Can’t Ignore You",
-    "desc": "2012 - Cal Newport",
-    "page": "89"
+    title: "So Good They Can’t Ignore You",
+    desc: "2012 - Cal Newport",
+    page: "89"
   }
-]
+];
 
 const Passage = ({ passage }) => {
   return (
@@ -151,7 +151,7 @@ const Passage = ({ passage }) => {
       </RightSide>
     </PassageItem>
   );
-};
+
 
 const Profile = ({ username, imgSource, passageCount }) => {
   const passage_list = JSON_stuff.map((element, index) => {
@@ -184,6 +184,7 @@ const Profile = ({ username, imgSource, passageCount }) => {
       <PassageList>{passage_list}</PassageList>      
     </ProfileScreen>
   );
-}
+};
 
 export { Profile };
+

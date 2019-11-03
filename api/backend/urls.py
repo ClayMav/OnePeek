@@ -17,13 +17,15 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import path, include                 
 from rest_framework import routers                    
-from passage import views
+from passage import views as p_views
+from userinfo import views as u_views
 
 router = routers.DefaultRouter()
-router.register(r'passages', views.passageView, 'passage')
-router.register(r'questions', views.questionView, 'question')
+router.register(r'passages', p_views.passageView, 'passage')
+router.register(r'questions', p_views.questionView, 'question')
+router.register(r'users', u_views.userinfoView, 'question')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls))
+    path('api/', include(router.urls)),
 ]

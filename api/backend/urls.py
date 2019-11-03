@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import path, include                 
 from rest_framework import routers                    
-from passage import views
+from ..passage import views
 
 router = routers.DefaultRouter()
 router.register(r'passages', views.passageView, 'passage')

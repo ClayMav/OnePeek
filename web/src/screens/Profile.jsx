@@ -1,11 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import { BookmarkBorder } from "@material-ui/icons"
+import MaterialIcon from "material-icons-react";
 
 // FIXME: Hr currently has a tiny width for some reason
-const divider = styled.hr`
-
-`;
+const divider = styled.hr``;
 
 const ProfileScreen = styled.main`
   background: #30323a;
@@ -59,31 +57,29 @@ const PassageItem = styled.p`
 
 const JSON_stuff = [
   {
-    "title": "Fahrenheit 451",
-    "desc": "1953 - Ray Bradbury",
-    "page": "134"
+    title: "Fahrenheit 451",
+    desc: "1953 - Ray Bradbury",
+    page: "134"
   },
   {
-    "title": "Slaughterhouse Five",
-    "desc": "1969 - Kurt Vonnegut",
-    "page": "77"
+    title: "Slaughterhouse Five",
+    desc: "1969 - Kurt Vonnegut",
+    page: "77"
   },
   {
-    "title": "Le Comte de Monte Cristo",
-    "desc": "1844 - Alexandre Dumas",
-    "page": "3989"
+    title: "Le Comte de Monte Cristo",
+    desc: "1844 - Alexandre Dumas",
+    page: "3989"
   },
   {
-    "title": "So Good They Can’t Ignore You",
-    "desc": "2012 - Cal Newport",
-    "page": "89"
+    title: "So Good They Can’t Ignore You",
+    desc: "2012 - Cal Newport",
+    page: "89"
   }
-]
+];
 
 const Passage = ({ passage }) => {
-  return (
-    <PassageItem>{passage.title}</PassageItem>
-  );
+  return <PassageItem>{passage.title}</PassageItem>;
 };
 
 const Profile = ({ username, imgSource, passageCount }) => {
@@ -101,20 +97,21 @@ const Profile = ({ username, imgSource, passageCount }) => {
         <img src={imgSource} alt="Profile picture" />
       </ProfilePic>
 
-      <Greeting>Hey <Name>{username}</Name>,</Greeting>
-      <PassageCount>
-        You've read {passageCount} passages
-      </PassageCount>
+      <Greeting>
+        Hey <Name>{username}</Name>,
+      </Greeting>
+      <PassageCount>You've read {passageCount} passages</PassageCount>
 
       <hr />
-      <PassasgeTitle>Passages<BookmarkBorder></BookmarkBorder></PassasgeTitle>
+      <PassasgeTitle>
+        Passages
+        <MaterialIcon icon="bookmark_border" />
+      </PassasgeTitle>
       <PassageList>{passage_list}</PassageList>
       <hr />
-
-      
-
     </ProfileScreen>
   );
-}
+};
 
 export { Profile };
+

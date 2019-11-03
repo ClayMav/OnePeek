@@ -1,5 +1,6 @@
 import React from "reactn";
 import styled from "styled-components";
+import MaterialIcon from "material-icons-react";
 import { Trivia } from "./Trivia";
 
 const Wrap = styled.div`
@@ -37,7 +38,7 @@ const BookInfo = styled.h4`
 `;
 
 const Rating = styled.h3`
-  font-size: 18px;
+  font-size: 16px;
 `;
 
 const BookTitleBigger = styled.h1`
@@ -83,6 +84,15 @@ const Chevron = styled.i`
   padding: 20px;
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
+`;
+
+const Rate = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+const Thumb = styled.a`
+  margin-left: 15px;
 `;
 
 const passage = {
@@ -168,15 +178,15 @@ const Passage = () => {
         </ChevWrap>
       </OnePage>
 
-      <div>
+      <Rate>
         <Rating>Did you like this passage?</Rating>
-        <a>
-          <img />
-        </a>
-        <a>
-          <img />
-        </a>
-      </div>
+        <Thumb>
+          <MaterialIcon icon="thumb_up" color="#b3b3b3" />
+        </Thumb>
+        <Thumb>
+          <MaterialIcon icon="thumb_down" color="#b3b3b3" />
+        </Thumb>
+      </Rate>
 
       <hr />
       <BookDetails />

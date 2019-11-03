@@ -80,8 +80,9 @@ const Trivia = ({ question }) => {
     setComment(e.target.value);
   };
   const onClick = () => {
-    console.log("sending comment");
+    console.log("stuff");
   };
+  console.log(question.comments);
 
   return (
     <TriviaWrap>
@@ -118,11 +119,12 @@ const Trivia = ({ question }) => {
               <button onClick={onClick}>Comment</button>
             </form>
             <hr />
-            {question.comments.map(comment => {
+            {question.comments.map((index, commen) => {
+              console.log(commen);
               return (
-                <div>
-                  <strong>{comment.commenter}</strong>
-                  <p>{comment.comment}</p>
+                <div key={index}>
+                  <strong>{commen.commenter}</strong>
+                  <p>{commen.comment}</p>
                 </div>
               );
             })}

@@ -1,4 +1,5 @@
-import React from "reactn";
+import React, { useState, useEffect } from "reactn";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import MaterialIcon from "material-icons-react";
 import { Trivia } from "./Trivia";
@@ -70,8 +71,14 @@ const GroupDown = styled.div`
   margin-top: 15px;
 `;
 
-const Intro = styled.div`
+const Intro = styled(Link)`
   display: flex;
+  text-decoration: none;
+  color: white
+
+    &:focus, &:hover, &:visited, &:link, &:active {
+    text-decoration: none;
+  }
 `;
 
 const OnePage = styled.div`
@@ -99,9 +106,10 @@ const Rate = styled.div`
 `;
 const Thumb = styled.a`
   margin-left: 15px;
+  cursor: pointer;
 `;
 
-const passage = {
+const data = {
   genres: ["IDK"],
   authors: ["Ray Bradbury"],
   published: new Date(),
@@ -152,10 +160,39 @@ const BookDetails = () => {
 };
 
 const Passage = () => {
+  const [rating, setRating] = useState("");
+  const [passage, setPassage] = useState(undefined);
+  const onUp = () => {
+    setRating("up");
+  };
+  const onDown = () => {
+    setRating("down");
+  };
+  useEffect(() => {
+    const doIt = async () => {
+      setPassage(
+        await fetch("http://127.0.0.1:8000/api/passages/1/").then(resp =>
+          resp.json()
+        )
+      );
+    };
+    doIt();
+  }, []);
+
+  if (!passage) {
+    return (
+      <Wrap>
+        <OnePage>
+          <h3>Loading</h3>
+        </OnePage>
+      </Wrap>
+    );
+  }
+
   return (
     <Wrap>
       <OnePage>
-        <Intro>
+        <Intro to="/profile">
           <img />
           <Hello>
             Hey <UsernameColors>Clay</UsernameColors>, this one's for{" "}
@@ -186,11 +223,17 @@ const Passage = () => {
 
       <Rate>
         <Rating>Did you like this passage?</Rating>
-        <Thumb>
-          <MaterialIcon icon="thumb_up" color="#b3b3b3" />
+        <Thumb onClick={onUp}>
+          <MaterialIcon
+            icon="thumb_up"
+            color={rating === "up" ? "#447744" : "#b3b3b3"}
+          />
         </Thumb>
-        <Thumb>
-          <MaterialIcon icon="thumb_down" color="#b3b3b3" />
+        <Thumb onClick={onDown}>
+          <MaterialIcon
+            icon="thumb_down"
+            color={rating === "down" ? "#774444" : "#b3b3b3"}
+          />
         </Thumb>
       </Rate>
 
@@ -198,7 +241,7 @@ const Passage = () => {
       <BookDetails />
       <hr />
 
-      <Trivia question={passage.questions[0]} />
+      <Trivia question={data.questions[0]} />
     </Wrap>
   );
 };

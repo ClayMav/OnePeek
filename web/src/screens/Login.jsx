@@ -1,4 +1,5 @@
 import React, { setGlobal, useState } from "reactn";
+import { Redirect } from "react-router-dom";
 import styled from "styled-components";
 
 const Title = styled.h1`
@@ -10,25 +11,35 @@ const Wrap = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  height: 100vh;
   width: 100%;
 `;
 
 const Login = () => {
   const [input, setInput] = useState("");
+  const [done, setDone] = useState(false);
 
   const onClick = () => {
     console.log(`login ${input}`);
+    setTimeout(() => setDone(true), 1000);
   };
   const handleSubmit = e => {
     e.preventDefault();
   };
 
+  if (done) return <Redirect to="/passage" />;
   return (
     <Wrap>
       <Title>Login</Title>
       <form onSubmit={handleSubmit}>
-        <input value={input} onChange={e => setInput(e.target.value)} />
+        <input
+          placeholder="Name"
+          value={input}
+          onChange={e => setInput(e.target.value)}
+        />
+        <br />
+        <input type="password" placeholder="Password" />
+        <br />
         <button onClick={onClick}>Login</button>
       </form>
     </Wrap>

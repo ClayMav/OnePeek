@@ -151,7 +151,7 @@ const Passage = ({ passage }) => {
       </RightSide>
     </PassageItem>
   );
-
+};
 
 const Profile = ({ username, imgSource, passageCount }) => {
   const passage_list = JSON_stuff.map((element, index) => {
@@ -187,4 +187,3 @@ const Profile = ({ username, imgSource, passageCount }) => {
 };
 
 export { Profile };
-

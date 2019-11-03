@@ -56,12 +56,18 @@ const BookInfoBigger = styled.h4`
   font-size: 14px;
   color: #afafaf;
   font-weight: normal;
+  margin-bottom: 0;
+  margin-top: 0;
 `;
 
 const BuyNow = styled.a`
   font-size: 14px;
   color: #fff2af;
   font-weight: normal;
+`;
+
+const GroupDown = styled.div`
+  margin-top: 15px;
 `;
 
 const Intro = styled.div`
@@ -135,10 +141,10 @@ const BookDetails = () => {
         <div>
           <BookInfoBigger>October 19th, 1953</BookInfoBigger>
           <BookInfoBigger>United States</BookInfoBigger>
-          <BookInfoBigger>The Sieve and the Sand, p. 132</BookInfoBigger>
-          <h4>
+          <GroupDown>
+            <BookInfoBigger>The Sieve and the Sand, p. 132</BookInfoBigger>
             <BuyNow>Buy on Amazon</BuyNow>
-          </h4>
+          </GroupDown>
         </div>
       </div>
     </div>
@@ -191,6 +197,7 @@ const Passage = () => {
       <hr />
       <BookDetails />
       <hr />
+
       <Trivia question={passage.questions[0]} />
     </Wrap>
   );

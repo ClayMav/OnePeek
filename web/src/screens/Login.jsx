@@ -1,7 +1,12 @@
 import React, { setGlobal } from "reactn";
+import styled from "styled-components";
+
+const Title = styled.h1`
+  margin-top: 0;
+`;
 
 const Login = () => {
-  return <h1>Login</h1>;
+  return <Title>Login</Title>;
 };
 
 export { Login };

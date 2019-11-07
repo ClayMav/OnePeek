@@ -168,26 +168,6 @@ const Passage = () => {
   const onDown = () => {
     setRating("down");
   };
-  useEffect(() => {
-    const doIt = async () => {
-      setPassage(
-        await fetch("http://127.0.0.1:8000/api/passages/1/").then(resp =>
-          resp.json()
-        )
-      );
-    };
-    doIt();
-  }, []);
-
-  if (!passage) {
-    return (
-      <Wrap>
-        <OnePage>
-          <h3>Loading</h3>
-        </OnePage>
-      </Wrap>
-    );
-  }
 
   return (
     <Wrap>
